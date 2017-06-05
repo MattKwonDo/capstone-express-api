@@ -7,6 +7,14 @@ deployed on Heroku.
 
 [ERD](http://imgur.com/MqAQzC0)
 
+## Content to add:
+- Links to your client-side application, deployed client app, and deployed api.
+- A list of your API routes
+- Installation instructions for any dependencies
+- Explanations of the technologies used
+- A couple paragraphs about the general approach you took
+- Descriptions of any unsolved problems or major hurdles you had to overcome
+
 
 # Template Content:
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
