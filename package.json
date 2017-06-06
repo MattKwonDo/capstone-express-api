@@ -6,7 +6,8 @@
     "start": "grunt server"
   },
   "engines": {
-    "node": "4.6.2"
+    "node": "4.6.2",
+     "npm": "3.10.x"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
