@@ -1,6 +1,6 @@
 'use strict'
 
-const mongooseBaseName = 'beer-express-api'
+const mongooseBaseName = 'capstone-express-api'
 
 const environment = process.env.NODE_ENV || 'development'
 const database = {

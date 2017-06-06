@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('debug')('beer-express-api:users')
+const debug = require('debug')('capstone-express-api:users')
 
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
