@@ -12,16 +12,32 @@ const authenticate = require('./concerns/authenticate')
 const setUser = require('./concerns/set-current-user')
 const setModel = require('./concerns/set-mongoose-model')
 
+
+
+// dotenv method to pull data from .env files
+// const dotenv = require('dotenv').config()
+require('dotenv').config()
+
+// const MessageVerifier = require('lib/wiring/message-verifier')
+
+// const decodePlacesKey = (signedSecureToken) => {
+//   const mv = new MessageVerifier('MAPS_PLACES_API_KEY: ', process.env.MAPS_PLACES_API_KEY)
+//   return mv.verify(signedSecureToken)
+// }
+
 // find / show all beers
 const index = (req, res, next) => {
+  const mapsPlacesApiKey = process.env.MAPS_PLACES_API_KEY
+  console.log('MAPS_PLACES_API_KEY: ', mapsPlacesApiKey)
   // find everything in the Beer collection
   Beer.find({'_owner': req.user})
     .then(beers => {
       // console.log('beer index req.user is: ', req.user)
-      res.json({ // res.json is like 'render' in rails
+      res.json({ // res.json is like 'render' in rails, and is what sends data to the client side
       // to each individual beer:
-        beers: beers.map((event) => // "beers" here could be called anything // map creates new array
-          event.toJSON({ virtuals: true, user: req.user }))
+        beers: beers.map((event) => // "beers.map" here could be called anything as long as it matches the fat arrow method name of beers // map creates new array
+          event.toJSON({ virtuals: true, user: req.user })),
+        mapsPlacesApiKey: mapsPlacesApiKey
       })
     })
     // just for error handling, move to the next thing?
