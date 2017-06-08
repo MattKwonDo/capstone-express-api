@@ -46,10 +46,19 @@ const makeErrorHandler = (res, next) =>
 
 const signup = (req, res, next) => {
   const credentials = req.body.credentials
-  const user = { email: credentials.email, password: credentials.password }
+  const user = { email: credentials.email, password: credentials.password, confirmPassword: credentials.password_confirmation }
   getToken()
     .then(token => {
+      console.log('inside token and token is ', token)
       user.token = token
+      return user
+    })
+    .then((user) => {
+      console.log('inside user and user is ', user)
+      if (user.password !== user.confirmPassword) {
+        console.log('inside if statement and user is ', user)
+        return Promise.reject(new HttpError(400))
+      }
     })
     .then(() =>
       new User(user).save())
